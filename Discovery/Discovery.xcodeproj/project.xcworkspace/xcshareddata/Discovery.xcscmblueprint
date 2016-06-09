@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "ABE6E9A02959470B0780388D8E11B4231D14B8CB",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "ABE6E9A02959470B0780388D8E11B4231D14B8CB" : 0,
+    "D478212A125340D7FB8E8AF4C1973CAD25D64CE3" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "BD0A7D33-F989-4428-9035-B685E3BC5B6B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "ABE6E9A02959470B0780388D8E11B4231D14B8CB" : "Discovery\/",
+    "D478212A125340D7FB8E8AF4C1973CAD25D64CE3" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Discovery",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Discovery\/Discovery.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:tsukalab\/Discovery.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "ABE6E9A02959470B0780388D8E11B4231D14B8CB"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/tsukalab\/SpringVacationPresentation.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D478212A125340D7FB8E8AF4C1973CAD25D64CE3"
+    }
+  ]
+}
