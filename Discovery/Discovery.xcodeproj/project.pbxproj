@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D1B7F811D094F490000C4DC /* TempleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1B7F801D094F490000C4DC /* TempleteViewController.swift */; };
+		0D1B7F831D094F6C0000C4DC /* MicrosoftBandKit_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D1B7F821D094F6C0000C4DC /* MicrosoftBandKit_iOS.framework */; };
 		0DA196DB1D0945D3002D65B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA196DA1D0945D3002D65B0 /* AppDelegate.swift */; };
 		0DA196DD1D0945D3002D65B0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DA196DC1D0945D3002D65B0 /* ViewController.swift */; };
 		0DA196E01D0945D3002D65B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DA196DE1D0945D3002D65B0 /* Main.storyboard */; };
@@ -34,6 +36,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D1B7F7F1D094F1F0000C4DC /* BSwiftHeartRate-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BSwiftHeartRate-Bridging-Header.h"; sourceTree = "<group>"; };
+		0D1B7F801D094F490000C4DC /* TempleteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempleteViewController.swift; sourceTree = "<group>"; };
+		0D1B7F821D094F6C0000C4DC /* MicrosoftBandKit_iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MicrosoftBandKit_iOS.framework; sourceTree = "<group>"; };
 		0DA196D71D0945D3002D65B0 /* Discovery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Discovery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DA196DA1D0945D3002D65B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0DA196DC1D0945D3002D65B0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D1B7F831D094F6C0000C4DC /* MicrosoftBandKit_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,10 +83,12 @@
 		0DA196CE1D0945D3002D65B0 = {
 			isa = PBXGroup;
 			children = (
+				0D1B7F7F1D094F1F0000C4DC /* BSwiftHeartRate-Bridging-Header.h */,
 				0DA196D91D0945D3002D65B0 /* Discovery */,
 				0DA196EE1D0945D3002D65B0 /* DiscoveryTests */,
 				0DA196F91D0945D3002D65B0 /* DiscoveryUITests */,
 				0DA196D81D0945D3002D65B0 /* Products */,
+				0D1B7F821D094F6C0000C4DC /* MicrosoftBandKit_iOS.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				0DA196DA1D0945D3002D65B0 /* AppDelegate.swift */,
+				0D1B7F801D094F490000C4DC /* TempleteViewController.swift */,
 				0DA196DC1D0945D3002D65B0 /* ViewController.swift */,
 				0DA196DE1D0945D3002D65B0 /* Main.storyboard */,
 				0DA196E11D0945D3002D65B0 /* Assets.xcassets */,
@@ -193,6 +202,7 @@
 				TargetAttributes = {
 					0DA196D61D0945D3002D65B0 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 7AXPVRCGN9;
 					};
 					0DA196EA1D0945D3002D65B0 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -258,6 +268,7 @@
 			files = (
 				0DA196DD1D0945D3002D65B0 /* ViewController.swift in Sources */,
 				0DA196DB1D0945D3002D65B0 /* AppDelegate.swift in Sources */,
+				0D1B7F811D094F490000C4DC /* TempleteViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,10 +412,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Discovery/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tsukalab.Discovery;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BSwiftHeartRate-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -412,10 +429,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Discovery/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tsukalab.Discovery;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BSwiftHeartRate-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -484,6 +507,7 @@
 				0DA197011D0945D3002D65B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0DA197021D0945D3002D65B0 /* Build configuration list for PBXNativeTarget "DiscoveryTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +516,7 @@
 				0DA197041D0945D3002D65B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0DA197051D0945D3002D65B0 /* Build configuration list for PBXNativeTarget "DiscoveryUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +525,7 @@
 				0DA197071D0945D3002D65B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
