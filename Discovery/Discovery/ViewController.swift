@@ -25,7 +25,9 @@ class ViewController: UIViewController, MSBClientManagerDelegate,AVAudioPlayerDe
     var height2:CGFloat = 0
     var screenWidth:CGFloat = 0
     var screenHeight:CGFloat = 0
-
+     var heart:CGFloat = 0
+    var rate:UInt = 0
+    
     var client: MSBClient?
     private var clientManager = MSBClientManager.sharedManager()
     
@@ -55,7 +57,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate,AVAudioPlayerDe
         
         self.view.addSubview(backim);
         self.view.addSubview(im!);
-       
+        
         if timer == nil {
             timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("update:"), userInfo: nil, repeats: true)
             timer.fire()
@@ -85,11 +87,23 @@ class ViewController: UIViewController, MSBClientManagerDelegate,AVAudioPlayerDe
         if let client = self.client {
             do {
                 try client.sensorManager.startHeartRateUpdatesToQueue(nil, withHandler: { (heartRateData: MSBSensorHeartRateData!, error: NSError!) in
+                    
                     print(NSString(format: "Heart Rate: %3u %@",
                         heartRateData.heartRate,
                         heartRateData.quality == MSBSensorHeartRateQuality.Acquiring ? "Acquiring" : "Locked") as String)
+                    
+                    self.rate =  heartRateData.heartRate
+                    
+                    if self.timer == nil {
+                        self.timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("update:"), userInfo: nil, repeats: true)
+                        self.timer.fire()
+                    }
+                  
+        
+                
+                    
                 })
-
+                
             } catch let error as NSError {
                 print("startHeartRateUpdatesToQueue failed: \(error.description)")
             }
@@ -117,7 +131,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate,AVAudioPlayerDe
             if client.sensorManager.heartRateUserConsent() == MSBUserConsent.Granted {
                 startHeartRateUpdates()
             } else {
-               print("Requesting user consent for accessing HeartRate...")
+                print("Requesting user consent for accessing HeartRate...")
                 client.sensorManager.requestHRUserConsentWithCompletion( { (userConsent: Bool, error: NSError!) -> Void in
                     if userConsent {
                         self.startHeartRateUpdates()
@@ -127,7 +141,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate,AVAudioPlayerDe
                 })
             }
         }
-
+        
     }
     
     func clientManager(clientManager: MSBClientManager!, clientDidDisconnect client: MSBClient!) {
@@ -140,43 +154,53 @@ class ViewController: UIViewController, MSBClientManagerDelegate,AVAudioPlayerDe
     }
     
     
-}
-
-
-func playsound(){
-    var soundIdRing:SystemSoundID = 0
-    let soundUrl = NSURL.fileURLWithPath(NSBundle.mainBundle().pathForResource("buzzer", ofType:"mp3")!)
-    AudioServicesCreateSystemSoundID(soundUrl, &soundIdRing)
-    AudioServicesPlaySystemSound(soundIdRing)
-}
-
-func background(){
+    func playsound(){
+        var soundIdRing:SystemSoundID = 0
+        let soundUrl = NSURL.fileURLWithPath(NSBundle.mainBundle().pathForResource("buzzer", ofType:"mp3")!)
+        AudioServicesCreateSystemSoundID(soundUrl, &soundIdRing)
+        AudioServicesPlaySystemSound(soundIdRing)
+    }
     
     
-    self.view.backgroundColor = UIColor.redColor()
-    
-    let backimg2:UIImage = UIImage(named:"jail.jpg")!
-    var backim2:UIImageView! = nil
-    var scale3:CGFloat = 1.0
-    var width3:CGFloat = 0
-    var height3:CGFloat = 0
-    scale3 = screenWidth / width3
-    backim2 = UIImageView(image:backimg2)
-    let rect3:CGRect = CGRectMake(0, 0, width2*scale, height2*scale)
-    backim2.frame = rect3;
-    backim2!.center = CGPointMake(187.5, 333.5)
-    
-    self.view.addSubview(backim2);
-    playsound()
-    
-    
-    
-}
-
-func update(timer: NSTimer) {
-    im.alpha = im.alpha - 0.01
-    if (im.alpha < 0) {
-        im.alpha = 1.0
+    func background(){
+        
+        
+        self.view.backgroundColor = UIColor.redColor()
+        
+        let backimg2:UIImage = UIImage(named:"jail.jpg")!
+        var backim2:UIImageView! = nil
+        var scale3:CGFloat = 1.0
+        var width3:CGFloat = 0
+        var height3:CGFloat = 0
+        scale3 = screenWidth / width3
+        backim2 = UIImageView(image:backimg2)
+        let rect3:CGRect = CGRectMake(0, 0, width2*scale, height2*scale)
+        backim2.frame = rect3;
+        backim2!.center = CGPointMake(187.5, 333.5)
+        
+        self.view.addSubview(backim2);
+        
+        playsound()
+        
+        
+    }
+  
+ 
+    func update(timer: NSTimer) {
+        if(rate<65){
+            heart=0.008
+        }
+        if(rate>=65&&rate<80){
+            heart=0.01
+        }
+        if(rate>=80){
+            heart=0.4
+        }
+        
+        im.alpha = im.alpha - heart
+        if (im.alpha < 0) {
+            im.alpha = 1.0
+        }
     }
 }
 

@@ -265,7 +265,7 @@
 				TargetAttributes = {
 					0DA196D61D0945D3002D65B0 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 7AXPVRCGN9;
+						DevelopmentTeam = 678Z994MX6;
 					};
 					0DA196EA1D0945D3002D65B0 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -605,15 +605,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Discovery/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = tsukalab.Discovery;
+				PRODUCT_BUNDLE_IDENTIFIER = aaa.Discovery;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f43c9777-1837-44dd-85ca-b25c7a5a526d";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "BSwiftHeartRate-Bridging-Header.h";
 			};
 			name = Debug;
@@ -624,15 +625,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Discovery/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = tsukalab.Discovery;
+				PRODUCT_BUNDLE_IDENTIFIER = aaa.Discovery;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "f43c9777-1837-44dd-85ca-b25c7a5a526d";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "BSwiftHeartRate-Bridging-Header.h";
 			};
 			name = Release;
