@@ -7,18 +7,19 @@
 //
 
 import UIKit
+import SocketIOClientSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var navigationController: UINavigationController?
-
-
+    var socket : SocketIOClient!
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         navigationController = UINavigationController()
-        var viewController: ViewController = ViewController()
+        let viewController: ViewController = ViewController()
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
@@ -27,6 +28,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window!.backgroundColor = UIColor.whiteColor()
         self.window!.makeKeyAndVisible()
+        
+/*        let url = NSURL(string: "http://hogehoge:3000")!
+         socket = SocketIOClient(socketURL: url)
+        socket.on("connect") {data in
+            print("connected!")
+        }
+        
+        socket.on("disconnect"){ data in
+            print("disconnected!")
+        }
+        
+        socket.connect()*/
+        
         return true
     }
 

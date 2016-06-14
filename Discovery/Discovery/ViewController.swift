@@ -22,10 +22,11 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
         if let band = clientManager.attachedClients().first as! MSBClient? {
             self.client = band
             clientManager.connectClient(client)
+            print("Please wait. Connecting to Band <\(client!.name)>")
         } else {
+            print("Failed! No Bands attached.")
             return
         }
-        startHeartRateUpdates()
     }
     
     override func didReceiveMemoryWarning() {
@@ -38,9 +39,6 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
         if let client = self.client {
             do {
                 try client.sensorManager.startHeartRateUpdatesToQueue(nil, withHandler: { (heartRateData: MSBSensorHeartRateData!, error: NSError!) in
-               /*     self.hrLabel.text = NSString(format: "Heart Rate: %3u %@",
-                        heartRateData.heartRate,
-                        heartRateData.quality == MSBSensorHeartRateQuality.Acquiring ? "Acquiring" : "Locked") as String*/
                     print(NSString(format: "Heart Rate: %3u %@",
                         heartRateData.heartRate,
                         heartRateData.quality == MSBSensorHeartRateQuality.Acquiring ? "Acquiring" : "Locked") as String)
@@ -69,6 +67,21 @@ class ViewController: UIViewController, MSBClientManagerDelegate {
     func clientManager(clientManager: MSBClientManager!, clientDidConnect client: MSBClient!) {
         print("Band <\(client.name)>connected.")
         
+        if let client = self.client {
+            if client.sensorManager.heartRateUserConsent() == MSBUserConsent.Granted {
+                startHeartRateUpdates()
+            } else {
+               print("Requesting user consent for accessing HeartRate...")
+                client.sensorManager.requestHRUserConsentWithCompletion( { (userConsent: Bool, error: NSError!) -> Void in
+                    if userConsent {
+                        self.startHeartRateUpdates()
+                    } else {
+                        print("User consent declined.")
+                    }
+                })
+            }
+        }
+
     }
     
     func clientManager(clientManager: MSBClientManager!, clientDidDisconnect client: MSBClient!) {

@@ -100,12 +100,12 @@
 		0DA196CE1D0945D3002D65B0 = {
 			isa = PBXGroup;
 			children = (
-				0D1B7F7F1D094F1F0000C4DC /* BSwiftHeartRate-Bridging-Header.h */,
 				0DA196D91D0945D3002D65B0 /* Discovery */,
 				0DA196EE1D0945D3002D65B0 /* DiscoveryTests */,
 				0DA196F91D0945D3002D65B0 /* DiscoveryUITests */,
-				0DA196D81D0945D3002D65B0 /* Products */,
 				0D1B7F821D094F6C0000C4DC /* MicrosoftBandKit_iOS.framework */,
+				0D1B7F7F1D094F1F0000C4DC /* BSwiftHeartRate-Bridging-Header.h */,
+				0DA196D81D0945D3002D65B0 /* Products */,
 				A3ED45469EBEA19ACDD8B1D8 /* Pods */,
 				FC022D8288E4C0EEC01034D7 /* Frameworks */,
 			);
@@ -143,7 +143,7 @@
 				0DA196F11D0945D3002D65B0 /* Info.plist */,
 			);
 			path = DiscoveryTests;
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 		};
 		0DA196F91D0945D3002D65B0 /* DiscoveryUITests */ = {
 			isa = PBXGroup;
@@ -152,7 +152,7 @@
 				0DA196FC1D0945D3002D65B0 /* Info.plist */,
 			);
 			path = DiscoveryUITests;
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 		};
 		A3ED45469EBEA19ACDD8B1D8 /* Pods */ = {
 			isa = PBXGroup;
@@ -597,6 +597,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tsukalab.Discovery;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "f43c9777-1837-44dd-85ca-b25c7a5a526d";
 				SWIFT_OBJC_BRIDGING_HEADER = "BSwiftHeartRate-Bridging-Header.h";
 			};
 			name = Debug;
@@ -615,6 +616,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tsukalab.Discovery;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "f43c9777-1837-44dd-85ca-b25c7a5a526d";
 				SWIFT_OBJC_BRIDGING_HEADER = "BSwiftHeartRate-Bridging-Header.h";
 			};
 			name = Release;

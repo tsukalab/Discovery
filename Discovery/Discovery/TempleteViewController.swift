@@ -33,9 +33,9 @@ class TempleteViewController: UIViewController, MSBClientManagerDelegate, UIText
         if let band = clientManager.attachedClients().first as! MSBClient? {
             self.client = band
             clientManager.connectClient(client)
-            output("Please wait. Connecting to Band <\(client!.name)>")
+            print("Please wait. Connecting to Band <\(client!.name)>")
         } else {
-            output("Failed! No Bands attached.")
+            print("Failed! No Bands attached.")
             return
         }
     }
