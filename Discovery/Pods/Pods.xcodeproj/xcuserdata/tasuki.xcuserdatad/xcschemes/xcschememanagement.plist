@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Pods-Discovery.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+		<key>Pods-DiscoveryTests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>Pods-DiscoveryUITests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>Socket.IO-Client-Swift.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>15E6CFDBA73CE4780947D932372843D4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5C8490312AE02C64CA0ACA329D2F72AB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C5EC6408FC31107FA3C1D24633B6A7EC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FEF2954D8C2D073E84D56F6D35E7AB5A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
