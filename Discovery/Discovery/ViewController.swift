@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import SocketIOClientSwift
 
 class ViewController: UIViewController, MSBClientManagerDelegate,AVAudioPlayerDelegate  {
     var timer: NSTimer!
@@ -30,7 +31,8 @@ class ViewController: UIViewController, MSBClientManagerDelegate,AVAudioPlayerDe
     
     var client: MSBClient?
     private var clientManager = MSBClientManager.sharedManager()
-    
+    var socket : SocketIOClient!
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         width = img.size.width
@@ -75,6 +77,13 @@ class ViewController: UIViewController, MSBClientManagerDelegate,AVAudioPlayerDe
             print("Failed! No Bands attached.")
             return
         }
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        socket = appDelegate.socket as SocketIOClient
+        
+      /*  socket.on("????_from_server"){ (data,ack) in
+            self.playsound()
+        }*/
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -99,7 +108,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate,AVAudioPlayerDe
                         self.timer.fire()
                     }
                   
-        
+   //     self.socket.emit("heartrate_to_server", self.rate)
                 
                     
                 })
@@ -179,9 +188,6 @@ class ViewController: UIViewController, MSBClientManagerDelegate,AVAudioPlayerDe
         backim2!.center = CGPointMake(187.5, 333.5)
         
         self.view.addSubview(backim2);
-        
-        playsound()
-        
         
     }
   
