@@ -80,9 +80,10 @@ class ViewController: UIViewController, MSBClientManagerDelegate,AVAudioPlayerDe
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         socket = appDelegate.socket as SocketIOClient
         
-      /*  socket.on("????_from_server"){ (data,ack) in
+        socket.on("publish"){ (data,ack) in
+            
             self.playsound()
-        }*/
+        }
         
     }
     
@@ -107,9 +108,7 @@ class ViewController: UIViewController, MSBClientManagerDelegate,AVAudioPlayerDe
                         self.timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: Selector("update:"), userInfo: nil, repeats: true)
                         self.timer.fire()
                     }
-                  
-   //     self.socket.emit("heartrate_to_server", self.rate)
-                
+                        self.socket.emit("client_to_server", self.rate)
                     
                 })
                 

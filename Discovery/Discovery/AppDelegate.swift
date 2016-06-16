@@ -18,6 +18,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        let url = NSURL(string: "http://192.168.134.123:3000")!
+        socket = SocketIOClient(socketURL: url)
+        socket.on("connect") {data in
+            print("connected!")
+        }
+        
+        socket.on("disconnect"){ data in
+            print("disconnected!")
+        }
+        
+        socket.connect()
+        
         navigationController = UINavigationController()
         let viewController: ViewController = ViewController()
         
@@ -28,18 +40,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window!.backgroundColor = UIColor.whiteColor()
         self.window!.makeKeyAndVisible()
-        
-/*        let url = NSURL(string: "http://hogehoge:3000")!
-         socket = SocketIOClient(socketURL: url)
-        socket.on("connect") {data in
-            print("connected!")
-        }
-        
-        socket.on("disconnect"){ data in
-            print("disconnected!")
-        }
-        
-        socket.connect()*/
         
         return true
     }
